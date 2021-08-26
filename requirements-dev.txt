@@ -1,0 +1,5 @@
+pytest
+gunicorn
+uvicorn
+uvloop
+httptools

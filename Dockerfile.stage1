@@ -1,0 +1,16 @@
+# https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
+
+# Install PyTorch CPU version
+# https://pytorch.org/get-started/locally/#linux-pip
+RUN pip3 install torch==1.7.0+cpu torchvision==0.8.1+cpu torchaudio==0.7.0 -f https://download.pytorch.org/whl/torch_stable.html
+RUN pip3 install sentence_transformers==0.3.8
+
+# Tried to store the nlp model files in the git repository with git lfs, but
+# soon hit lfs bandwidth limits, so trying to embed the nlp model files into the
+# docker container when building it as an alternative.
+#
+# From this stage1 docker image, we will build out our app.
+#
+
+RUN python -c 'from sentence_transformers import SentenceTransformer; model = SentenceTransformer("some-model-name-here")'

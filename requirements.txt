@@ -1,0 +1,21 @@
+# FastAPI and uvicorn are included in the Docker container image
+fastapi~=0.61.1
+uvicorn
+
+# Used to serve static assets
+aiofiles
+
+# Language models and sentence vector embeddings
+sentence_transformers==0.3.8
+
+# Scikit-learn has the k-means clustering algorithm implementation we are using
+scikit-learn~=0.23.2
+
+# For json logging
+loguru~=0.5.3
+
+# To run tests
+pytest
+
+# NLTK is used for stopwords filtering and tokenization in the labeling module
+nltk~=3.5
